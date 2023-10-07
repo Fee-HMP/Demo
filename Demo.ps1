@@ -1,6 +1,3 @@
-
-$txtName = "Information"
-
 <#
 
 .NOTES  
