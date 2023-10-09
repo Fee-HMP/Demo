@@ -161,7 +161,7 @@ $Network = Get-WmiObject Win32_NetworkAdapterConfiguration | where { $_.MACAddre
 $WLANProfileNames =@()
 
 #Get all the WLAN profile names
-$Output = netsh.exe wlan show profiles | Select-String -pattern " : "
+$Output = netsh.exe wlan show profiles | Select-String -pattern ":"
 
 #Trim the output to receive only the name
 Foreach($WLANProfileName in $Output){
